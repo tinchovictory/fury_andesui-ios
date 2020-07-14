@@ -11,17 +11,19 @@ import UIKit
 
 	internal var contentView: AndesCardView!
 
+	// MARK: - User properties
+
 	/// Sets the internal card view of the AndesCard
     @IBInspectable public var cardView: UIView = UIView() // TODO: @IBInspectable ?
 
 	/// Sets the title of the AndesCard
     @IBInspectable public var title: String?
 
-	/// Sets the title position of the AndesCard
-    @objc public var titlePosition: AndesCardTitlePosition = .inside
-
 	/// Sets the padding of the AndesCard
 	@objc public var padding: AndesCardPadding = .none
+
+    /// Sets the hierarchy of the AndesCard
+    @objc public var hierarchy: AndesCardHierarchy = .primary
 
 	/// Sets the style of the AndesCard
 	@objc public var style: AndesCardStyle = .elevated
@@ -29,9 +31,7 @@ import UIKit
 	/// Sets the type of AndesCard
 	@objc public var type: AndesCardType = .none
 
-	/// Sets the hierarchy of the AndesCard
-	@objc public var hierarchy: AndesCardHierarchy = .primary
-
+	// MARK: - Initialization
 	public required init?(coder: NSCoder) {
 		super.init(coder: coder)
 		setup()
@@ -42,37 +42,61 @@ import UIKit
 		setup()
 	}
 
-	public init(cardView: UIView, title: String?, titlePosition: AndesCardTitlePosition = .inside, padding: AndesCardPadding = .none, style: AndesCardStyle = .elevated, type: AndesCardType = .none, hierarchy: AndesCardHierarchy = .primary) {
+	public init(cardView: UIView, title: String?, padding: AndesCardPadding = .none, hierarchy: AndesCardHierarchy = .primary, style: AndesCardStyle = .elevated, type: AndesCardType = .none) {
 		super.init(frame: .zero)
 		self.cardView = cardView
 		self.title = title
-		self.titlePosition = titlePosition
 		self.padding = padding
+        self.hierarchy = hierarchy
 		self.style = style
 		self.type = type
-		self.hierarchy = hierarchy
 		setup()
 	}
+
+	// MARK: - Content View Setup
 
 	private func setup() {
 		translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = .clear
-        //drawContentView(with: provideView())
+        drawContentView(with: provideView())
 	}
+
+	/// Should return a view depending on which message variant is selected
+    private func provideView() -> AndesCardView {
+        let config = AndesCardViewConfigFactory.provideConfig(for: self)
+
+        // TODO: Add here card variations
+        return AndesCardDefaultView(withConfig: config)
+    }
+
+	private func drawContentView(with newView: AndesCardView) {
+        self.contentView = newView
+//        contentView.delegate = self
+        addSubview(contentView)
+        leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+    }
+
+    /// Check if view needs to be redrawn, and then update it. This method should be called on all modifiers that may need to change which internal view should be rendered
+//    private func reDrawContentViewIfNeededThenUpdate() {
+//        let newView = provideView()
+//        if Swift.type(of: newView) !== Swift.type(of: contentView) {
+//            contentView.removeFromSuperview()
+//            drawContentView(with: newView)
+//        }
+//        updateContentView()
+//    }
+
+//	private func updateContentView() {
+//        let config = AndesContentViewConfigFactory.provideConfig(for: self)
+//        contentView.update(withConfig: config)
+//    }
 }
 
 // MARK: - IB Interface
 public extension AndesCard {
-
-    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'titlePosition' instead.")
-    @IBInspectable var ibTitlePosition: String {
-        set(val) {
-            self.titlePosition = AndesCardTitlePosition.checkValidEnum(property: "IB titlePosition", key: val)
-        }
-        get {
-            return self.type.toString()
-        }
-    }
 
 	@available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'padding' instead.")
     @IBInspectable var ibPadding: String {
