@@ -9,5 +9,22 @@ import Foundation
 
 /// used to define the ui of internal AndesCard views
 internal struct AndesCardViewConfig {
+    let backgroundColor: UIColor
+    let pipeColor: UIColor
+    let borderColor: UIColor?
+    let padding: UInt
+    let shadow: AndesCardShadowConfig?
 
+    let titleText: String?
+    let cardView: UIView
+
+    init(backgroundColor: UIColor, pipeColor: UIColor, borderColor: UIColor?, padding: UInt, shadow: AndesCardShadowConfig?, titleText: String?, cardView: UIView) {
+        self.backgroundColor = backgroundColor
+        self.pipeColor = pipeColor
+        self.borderColor = borderColor
+        self.padding = padding
+        self.shadow = shadow
+        self.titleText = titleText
+        self.cardView = cardView
+    }
 }
