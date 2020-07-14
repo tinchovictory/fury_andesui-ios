@@ -12,8 +12,8 @@ struct AndesCardStyleElevated: AndesCardStyleProtocol {
     let borderColor: UIColor?
 
     init() {
-        self.shadow = AndesCardShadowConfig(shadowColor: .green,
-                                            shadowOffset: CGSize(width: 0, height: -8),
+        self.shadow = AndesCardShadowConfig(shadowColor: .black,
+                                            shadowOffset: CGSize(width: 0, height: 6),
                                             shadowRadius: 16,
                                             shadowOpacity: 0.1)
         self.borderColor = nil

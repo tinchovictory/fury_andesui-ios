@@ -8,5 +8,5 @@
 import Foundation
 
 internal protocol AndesCardTypeProtocol {
-    let pipeColor: UIColor { get }
+    var pipeColor: UIColor { get }
 }

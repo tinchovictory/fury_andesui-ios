@@ -27,4 +27,14 @@ internal struct AndesCardViewConfig {
         self.titleText = titleText
         self.cardView = cardView
     }
+
+    init() {
+        self.backgroundColor = .clear
+        self.pipeColor = .clear
+        self.borderColor = nil
+        self.padding = 0
+        self.shadow = nil
+        self.titleText = nil
+        self.cardView = UIView()
+    }
 }

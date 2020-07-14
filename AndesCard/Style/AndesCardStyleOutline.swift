@@ -9,5 +9,5 @@ import Foundation
 
 struct AndesCardStyleOutline: AndesCardStyleProtocol {
     let shadow: AndesCardShadowConfig? = nil
-    let borderColor: UIColor? = .green
+    let borderColor: UIColor? = UIColor.Andes.gray100
 }
