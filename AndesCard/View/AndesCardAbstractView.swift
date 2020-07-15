@@ -8,6 +8,7 @@
 import UIKit
 
 class AndesCardAbstractView: UIView, AndesCardView {
+    weak var delegate: AndesCardViewDelegate?
 
     // MARK: - Xib Outlets
 
@@ -27,7 +28,7 @@ class AndesCardAbstractView: UIView, AndesCardView {
 
     // MARK: - View initialization
 
-    private var config: AndesCardViewConfig
+    internal var config: AndesCardViewConfig
     private weak var userCardView: UIView?
 
     init(withConfig config: AndesCardViewConfig) {
@@ -42,7 +43,7 @@ class AndesCardAbstractView: UIView, AndesCardView {
         setup()
     }
 
-    private func setup() {
+    internal func setup() {
         loadNib()
         translatesAutoresizingMaskIntoConstraints = false
 

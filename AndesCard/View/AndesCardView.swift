@@ -12,6 +12,6 @@ Internal protocol specifying the behaviour required by views to be a valid Andes
 */
 
 internal protocol AndesCardView: UIView {
-	// TODO: delegate
+	var delegate: AndesCardViewDelegate? { get set }
     func update(withConfig config: AndesCardViewConfig)
 }

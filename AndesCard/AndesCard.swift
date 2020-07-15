@@ -43,6 +43,11 @@ import UIKit
         didSet { self.updateContentView() }
     }
 
+    internal var linkText: String?
+
+    // closure triggered when user presses the link
+    private var onLinkActionPressed: ((_ card: AndesCard) -> Void)?
+
 	// MARK: - Initialization
 	public required init?(coder: NSCoder) {
 		super.init(coder: coder)
@@ -77,13 +82,16 @@ import UIKit
     private func provideView() -> AndesCardView {
         let config = AndesCardViewConfigFactory.provideConfig(for: self)
 
-        // TODO: Add here card variations
+        if self.onLinkActionPressed != nil {
+            return AndesCardWithLinkView(withConfig: config)
+        }
+
         return AndesCardDefaultView(withConfig: config)
     }
 
 	private func drawContentView(with newView: AndesCardView) {
         self.contentView = newView
-//        contentView.delegate = self
+        contentView.delegate = self
         addSubview(contentView)
         leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
@@ -106,6 +114,25 @@ import UIKit
 	private func updateContentView() {
         let config = AndesCardViewConfigFactory.provideConfig(for: self)
         contentView.update(withConfig: config)
+    }
+
+    // MARK: - Actions
+
+    /// Link action, when defined a link button will appear
+    /// - Parameters:
+    ///   - title: Link text
+    ///   - handler: handler to trigger on link tap
+    @objc public func setLinkAction(_ title: String, handler: ((_ card: AndesCard) -> Void)?) {
+        self.linkText = title
+        self.onLinkActionPressed = handler
+        reDrawContentViewIfNeededThenUpdate()
+    }
+}
+
+// MARK: - AndesCardViewDelegate
+extension AndesCard: AndesCardViewDelegate {
+    func onLinkTouchUp() {
+        self.onLinkActionPressed?(self)
     }
 }
 

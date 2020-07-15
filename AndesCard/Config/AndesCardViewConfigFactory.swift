@@ -22,8 +22,7 @@ internal class AndesCardViewConfigFactory {
                                    titleHeight: padding.titleHeight,
                                    shadow: hierarchy.cardShadow,
                                    titleText: card.title,
+                                   linkText: card.linkText,
                                    cardView: card.cardView)
-
-        // TODO: Add here link action config
     }
 }
