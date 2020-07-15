@@ -14,22 +14,34 @@ import UIKit
 	// MARK: - User properties
 
 	/// Sets the internal card view of the AndesCard
-    @IBInspectable public var cardView: UIView = UIView() // TODO: @IBInspectable ?
+    @IBInspectable public var cardView: UIView = UIView() { // TODO: @IBInspectable ?
+        didSet { self.updateContentView() }
+    }
 
 	/// Sets the title of the AndesCard
-    @IBInspectable public var title: String?
+    @IBInspectable public var title: String? {
+        didSet { self.updateContentView() }
+    }
 
 	/// Sets the padding of the AndesCard
-	@objc public var padding: AndesCardPadding = .none
+    @objc public var padding: AndesCardPadding = .none {
+        didSet { self.updateContentView() }
+    }
 
     /// Sets the hierarchy of the AndesCard
-    @objc public var hierarchy: AndesCardHierarchy = .primary
+    @objc public var hierarchy: AndesCardHierarchy = .primary {
+        didSet { self.updateContentView() }
+    }
 
 	/// Sets the style of the AndesCard
-	@objc public var style: AndesCardStyle = .elevated
+    @objc public var style: AndesCardStyle = .elevated {
+        didSet { self.updateContentView() }
+    }
 
 	/// Sets the type of AndesCard
-	@objc public var type: AndesCardType = .none
+    @objc public var type: AndesCardType = .none {
+        didSet { self.updateContentView() }
+    }
 
 	// MARK: - Initialization
 	public required init?(coder: NSCoder) {
@@ -61,7 +73,7 @@ import UIKit
         drawContentView(with: provideView())
 	}
 
-	/// Should return a view depending on which message variant is selected
+	/// Should return a view depending on which card variant is selected
     private func provideView() -> AndesCardView {
         let config = AndesCardViewConfigFactory.provideConfig(for: self)
 
@@ -79,20 +91,22 @@ import UIKit
         bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
 
-    /// Check if view needs to be redrawn, and then update it. This method should be called on all modifiers that may need to change which internal view should be rendered
-//    private func reDrawContentViewIfNeededThenUpdate() {
-//        let newView = provideView()
-//        if Swift.type(of: newView) !== Swift.type(of: contentView) {
-//            contentView.removeFromSuperview()
-//            drawContentView(with: newView)
-//        }
-//        updateContentView()
-//    }
+    // MARK: - Conent View Update
 
-//	private func updateContentView() {
-//        let config = AndesContentViewConfigFactory.provideConfig(for: self)
-//        contentView.update(withConfig: config)
-//    }
+    /// Check if view needs to be redrawn, and then update it. This method should be called on all modifiers that may need to change which internal view should be rendered
+    private func reDrawContentViewIfNeededThenUpdate() {
+        let newView = provideView()
+        if Swift.type(of: newView) !== Swift.type(of: contentView) {
+            contentView.removeFromSuperview()
+            drawContentView(with: newView)
+        }
+        updateContentView()
+    }
+
+	private func updateContentView() {
+        let config = AndesCardViewConfigFactory.provideConfig(for: self)
+        contentView.update(withConfig: config)
+    }
 }
 
 // MARK: - IB Interface
