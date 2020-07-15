@@ -14,11 +14,16 @@ class AndesCardAbstractView: UIView, AndesCardView {
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var leftPipe: UIView!
     @IBOutlet weak var userViewContainer: UIView!
+    @IBOutlet weak var titleContainer: UIView!
+    @IBOutlet weak var titleLbl: UILabel!
 
     @IBOutlet weak var topUserViewContainerConstraint: NSLayoutConstraint!
     @IBOutlet weak var leadingUserViewContainerConstraint: NSLayoutConstraint!
     @IBOutlet weak var trailingUserViewContainerConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomUserViewContainerConstraint: NSLayoutConstraint!
+    @IBOutlet weak var titleContainerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var titleLblLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var titleLblTrailingConstraint: NSLayoutConstraint!
 
     // MARK: - View initialization
 
@@ -47,10 +52,12 @@ class AndesCardAbstractView: UIView, AndesCardView {
         containerView.clipsToBounds = true
 
         userViewContainer.backgroundColor = .clear
+        titleLbl.setAndesStyle(style: AndesFontStyle(textColor: UIColor.Andes.gray800, font: AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: 16), lineSpacing: 1))
 
         updateView()
     }
 
+    /// Override this method on each Card View to setup its unique Xib
     internal func loadNib() {
         fatalError("This should be overriden by a subclass")
     }
@@ -66,15 +73,13 @@ class AndesCardAbstractView: UIView, AndesCardView {
         updatePadding()
         updateBorder()
         updateShadow()
+        updateTitle()
     }
 
     private func updateUserView() {
         if let userCardView = self.userCardView, userCardView == config.cardView {
-            print("skip update userCardView")
             return
         }
-
-        print("updateCardView")
 
         userCardView?.removeFromSuperview()
         userCardView = config.cardView
@@ -108,6 +113,20 @@ class AndesCardAbstractView: UIView, AndesCardView {
         } else {
             layer.shadowColor = UIColor.clear.cgColor
         }
+    }
+
+    private func updateTitle() {
+        guard let titleText = config.titleText else {
+            titleLbl.isHidden = true
+            titleContainerHeightConstraint.constant = 0
+            return
+        }
+
+        titleLbl.isHidden = false
+        titleLbl.text = titleText
+        titleContainerHeightConstraint.constant = CGFloat(config.titleHeight)
+        titleLblLeadingConstraint.constant = CGFloat(config.titlePadding)
+        titleLblTrailingConstraint.constant = CGFloat(config.titlePadding)
     }
 
     func update(withConfig config: AndesCardViewConfig) {

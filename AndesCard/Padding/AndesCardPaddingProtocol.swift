@@ -9,4 +9,6 @@ import Foundation
 
 internal protocol AndesCardPaddingProtocol {
     var paddingSize: UInt { get }
+    var titlePaddingSize: UInt { get }
+    var titleHeight: UInt { get }
 }

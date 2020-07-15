@@ -18,6 +18,8 @@ internal class AndesCardViewConfigFactory {
                                    pipeColor: type.pipeColor,
                                    borderColor: hierarchy.borderColor,
                                    padding: padding.paddingSize,
+                                   titlePadding: padding.titlePaddingSize,
+                                   titleHeight: padding.titleHeight,
                                    shadow: hierarchy.cardShadow,
                                    titleText: card.title,
                                    cardView: card.cardView)

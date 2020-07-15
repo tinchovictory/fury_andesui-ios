@@ -9,4 +9,6 @@ import Foundation
 
 struct AndesCardPaddingNone: AndesCardPaddingProtocol {
     let paddingSize: UInt = 0
+    let titlePaddingSize: UInt = 16
+    let titleHeight: UInt = 40
 }
