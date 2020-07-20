@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AndesCardWithLinkView" customModule="AndesUI" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AndesCardWithLinkView" customModule="AndesUIResources" customModuleProvider="target">
             <connections>
                 <outlet property="bottomUserViewContainerConstraint" destination="222-1T-Dux" id="HCZ-an-WHF"/>
                 <outlet property="containerView" destination="iN0-l3-epB" id="1ru-xs-6dz"/>
@@ -55,7 +55,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="OYi-uW-lUF" secondAttribute="trailing" constant="16" id="DqV-pb-tNg"/>
                         <constraint firstItem="OYi-uW-lUF" firstAttribute="centerY" secondItem="Ac2-fe-Y8W" secondAttribute="centerY" id="EXQ-fA-5km"/>
@@ -70,16 +70,16 @@
                     <rect key="frame" x="0.0" y="176" width="462" height="48"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Link" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6J-mY-2Fb" userLabel="link">
-                            <rect key="frame" x="16" y="13.5" width="370" height="21"/>
+                            <rect key="frame" x="16" y="13.5" width="366" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jvv-TZ-pXu" userLabel="iconView">
-                            <rect key="frame" x="406" y="16" width="16" height="16"/>
+                            <rect key="frame" x="402" y="14" width="20" height="20"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="16" id="F7G-2N-DFg"/>
-                                <constraint firstAttribute="height" constant="16" id="wdC-BD-vEO"/>
+                                <constraint firstAttribute="width" constant="20" id="F7G-2N-DFg"/>
+                                <constraint firstAttribute="height" constant="20" id="wdC-BD-vEO"/>
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AQJ-r8-0kH" userLabel="lineDivider">
@@ -90,7 +90,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="AQJ-r8-0kH" secondAttribute="trailing" id="3at-up-Skf"/>
                         <constraint firstItem="u6J-mY-2Fb" firstAttribute="leading" secondItem="lP5-XZ-vHv" secondAttribute="leading" constant="16" id="62b-6a-exv"/>

@@ -32,7 +32,8 @@ class AndesCardWithLinkView: AndesCardAbstractView {
 
         linkLbl.setAndesStyle(style: AndesFontStyle(textColor: AndesStyleSheetManager.styleSheet.accentColor500, font: AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: 16), lineSpacing: 1))
 
-        AndesIconsProvider.loadIcon(name: AndesIcons.chevronRight16, placeItInto: iconView)
+        AndesIconsProvider.loadIcon(name: AndesIcons.chevronRight20, placeItInto: iconView)
+        iconView.tintColor = AndesStyleSheetManager.styleSheet.accentColor500
     }
 
     // MARK: - Update View

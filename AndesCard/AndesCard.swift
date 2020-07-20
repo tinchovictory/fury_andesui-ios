@@ -30,7 +30,7 @@ import UIKit
 
     /// Sets the hierarchy of the AndesCard
     @objc public var hierarchy: AndesCardHierarchy = .primary {
-        didSet { self.updateContentView() }
+        didSet { self.reDrawContentViewIfNeededThenUpdate() }
     }
 
 	/// Sets the style of the AndesCard
@@ -82,7 +82,7 @@ import UIKit
     private func provideView() -> AndesCardView {
         let config = AndesCardViewConfigFactory.provideConfig(for: self)
 
-        if self.onLinkActionPressed != nil {
+        if self.onLinkActionPressed != nil && self.hierarchy == .primary {
             return AndesCardWithLinkView(withConfig: config)
         }
 
@@ -93,10 +93,7 @@ import UIKit
         self.contentView = newView
         contentView.delegate = self
         addSubview(contentView)
-        leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        contentView.pinToSuperview()
     }
 
     // MARK: - Conent View Update

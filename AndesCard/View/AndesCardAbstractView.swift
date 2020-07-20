@@ -78,15 +78,11 @@ class AndesCardAbstractView: UIView, AndesCardView {
     }
 
     private func updateUserView() {
-        if let userCardView = self.userCardView, userCardView == config.cardView {
-            return
-        }
-
         userCardView?.removeFromSuperview()
-        userCardView = config.cardView
+        userViewContainer.addSubview(config.cardView)
+        config.cardView.pinToSuperview()
 
-        userViewContainer.addSubview(userCardView!)
-        userCardView?.pinToSuperview()
+        userCardView = config.cardView
     }
 
     private func updatePadding() {
