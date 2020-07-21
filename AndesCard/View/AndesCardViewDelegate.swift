@@ -10,4 +10,5 @@ import Foundation
 /// Used to route events form internal card views to AndesCard
 internal protocol AndesCardViewDelegate: AnyObject {
     func onLinkTouchUp()
+    func onCardTouchUp()
 }

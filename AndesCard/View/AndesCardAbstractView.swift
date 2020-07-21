@@ -46,6 +46,7 @@ class AndesCardAbstractView: UIView, AndesCardView {
     internal func setup() {
         loadNib()
         translatesAutoresizingMaskIntoConstraints = false
+        setupCardAction()
 
         self.addSubview(containerView)
         containerView.pinToSuperview()
@@ -61,6 +62,15 @@ class AndesCardAbstractView: UIView, AndesCardView {
     /// Override this method on each Card View to setup its unique Xib
     internal func loadNib() {
         fatalError("This should be overriden by a subclass")
+    }
+
+    private func setupCardAction() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onCardTouchUp))
+        containerView.addGestureRecognizer(tapGesture)
+    }
+
+    @objc internal func onCardTouchUp() {
+        delegate?.onCardTouchUp()
     }
 
     // MARK: - View configuration

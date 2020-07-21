@@ -193,18 +193,43 @@ class AndesCardTests: QuickSpec {
                     // Then
                     expect((card.contentView as! AndesCardWithLinkView).titleLbl.isHidden).to(beFalse())
                 }
+
+                it("hides the link when set to hierachy=secondary") {
+                    // Given
+                    let card = AndesCard(cardView: UIView(), title: "Title")
+                    card.setLinkAction("Link title", handler: {_ in })
+
+                    // When
+                    card.hierarchy = .secondary
+
+                    // Then
+                    expect(card.contentView.isKind(of: AndesCardDefaultView.self)).to(beTrue())
+                }
             }
         }
 
         describe("AndesCard should trigger callbacks on specifc events") {
+            context("For every AndesCard already initializaed") {
+                it("calls the card action handler on touch up") {
+                    // Given
+                    let card = AndesCard(cardView: UIView())
+                    var called = false
+                    card.setCardAction { _ in called = true }
+
+                    // When
+                    (card.contentView as! AndesCardAbstractView).onCardTouchUp()
+
+                    // Then
+                    expect(called).toEventually(beTrue())
+                }
+            }
+
             context("AndesCard is initialized with a link action") {
                 it("calls the link action handler on touch") {
                     // Given
                     let card = AndesCard(cardView: UIView())
                     var called = false
-                    card.setLinkAction("Link title") { _ in
-                        called = true
-                    }
+                    card.setLinkAction("Link title") { _ in called = true }
 
                     // When
                     (card.contentView as! AndesCardWithLinkView).handleTap()

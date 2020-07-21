@@ -48,6 +48,9 @@ import UIKit
     // closure triggered when user presses the link
     private var onLinkActionPressed: ((_ card: AndesCard) -> Void)?
 
+    // closure triggered when user presses the full card
+    private var onCardActionPressed: ((_ card: AndesCard) -> Void)?
+
 	// MARK: - Initialization
 	public required init?(coder: NSCoder) {
 		super.init(coder: coder)
@@ -124,12 +127,23 @@ import UIKit
         self.onLinkActionPressed = handler
         reDrawContentViewIfNeededThenUpdate()
     }
+
+    /// Card action, transforms the card into a button
+    /// - Parameters:
+    ///   - handler: handler to trigger on link tap
+    @objc public func setCardAction(handler: ((_ card: AndesCard) -> Void)?) {
+        self.onCardActionPressed = handler
+    }
 }
 
 // MARK: - AndesCardViewDelegate
 extension AndesCard: AndesCardViewDelegate {
     internal func onLinkTouchUp() {
         self.onLinkActionPressed?(self)
+    }
+
+    internal func onCardTouchUp() {
+        self.onCardActionPressed?(self)
     }
 }
 
