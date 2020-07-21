@@ -27,7 +27,7 @@ class AndesCardWithLinkView: AndesCardAbstractView {
     override func setup() {
         super.setup()
 
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         linkContainer.addGestureRecognizer(tapGesture)
 
         linkLbl.setAndesStyle(style: AndesFontStyle(textColor: AndesStyleSheetManager.styleSheet.accentColor500, font: AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: 16), lineSpacing: 1))
@@ -50,7 +50,7 @@ class AndesCardWithLinkView: AndesCardAbstractView {
     }
 
     // MARK: - User Interaction
-    @objc private func handleTap(sender: UITapGestureRecognizer) {
+    @objc internal func handleTap() {
         self.delegate?.onLinkTouchUp()
     }
 }

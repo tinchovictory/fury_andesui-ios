@@ -59,7 +59,7 @@ import UIKit
 		setup()
 	}
 
-	public init(cardView: UIView, title: String?, padding: AndesCardPadding = .none, hierarchy: AndesCardHierarchy = .primary, style: AndesCardStyle = .elevated, type: AndesCardType = .none) {
+	public init(cardView: UIView, title: String? = nil, padding: AndesCardPadding = .none, hierarchy: AndesCardHierarchy = .primary, style: AndesCardStyle = .elevated, type: AndesCardType = .none) {
 		super.init(frame: .zero)
 		self.cardView = cardView
 		self.title = title
@@ -128,7 +128,7 @@ import UIKit
 
 // MARK: - AndesCardViewDelegate
 extension AndesCard: AndesCardViewDelegate {
-    func onLinkTouchUp() {
+    internal func onLinkTouchUp() {
         self.onLinkActionPressed?(self)
     }
 }
