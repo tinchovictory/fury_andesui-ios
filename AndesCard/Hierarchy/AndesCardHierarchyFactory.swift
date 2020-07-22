@@ -14,6 +14,8 @@ internal class AndesCardHierarchyFactory {
             return AndesCardHierarchyPrimary(style: style)
         case .secondary:
             return AndesCardHierarchySecondary()
+        case .secondary_dark:
+            return AndesCardHierarchySecondaryDark()
         }
     }
 }

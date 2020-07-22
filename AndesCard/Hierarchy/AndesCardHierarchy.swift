@@ -11,11 +11,13 @@ import Foundation
 @objc public enum AndesCardHierarchy: Int, AndesEnumStringConvertible {
     case primary
     case secondary
+    case secondary_dark
 
 	public static func keyFor(_ value: AndesCardHierarchy) -> String {
 		switch value {
 		case .primary: return "PRIMARY"
 		case .secondary: return "SECONDARY"
+        case .secondary_dark: return "SECONDARY_DARK"
 		}
 	}
 }
