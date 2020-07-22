@@ -44,6 +44,7 @@ import UIKit
     }
 
     internal var linkText: String?
+    @objc public var actionLinkTitle: String? { self.linkText }
 
     // closure triggered when user presses the link
     private var onLinkActionPressed: ((_ card: AndesCard) -> Void)?
@@ -62,7 +63,7 @@ import UIKit
 		setup()
 	}
 
-	public init(cardView: UIView, title: String? = nil, padding: AndesCardPadding = .none, hierarchy: AndesCardHierarchy = .primary, style: AndesCardStyle = .elevated, type: AndesCardType = .none) {
+	@objc public init(cardView: UIView, title: String? = nil, padding: AndesCardPadding = .none, hierarchy: AndesCardHierarchy = .primary, style: AndesCardStyle = .elevated, type: AndesCardType = .none) {
 		super.init(frame: .zero)
 		self.cardView = cardView
 		self.title = title
@@ -85,7 +86,7 @@ import UIKit
     private func provideView() -> AndesCardView {
         let config = AndesCardViewConfigFactory.provideConfig(for: self)
 
-        if self.onLinkActionPressed != nil && self.hierarchy == .primary {
+        if let linkText = linkText, !linkText.isEmpty && self.onLinkActionPressed != nil && self.hierarchy == .primary {
             return AndesCardWithLinkView(withConfig: config)
         }
 
@@ -122,17 +123,29 @@ import UIKit
     /// - Parameters:
     ///   - title: Link text
     ///   - handler: handler to trigger on link tap
-    @objc public func setLinkAction(_ title: String, handler: ((_ card: AndesCard) -> Void)?) {
+    @objc public func setLinkAction(_ title: String, handler: @escaping ((_ card: AndesCard) -> Void)) {
         self.linkText = title
         self.onLinkActionPressed = handler
+        reDrawContentViewIfNeededThenUpdate()
+    }
+
+    /// Remove link action if present
+    @objc public func removeLinkAction() {
+        self.linkText = nil
+        self.onLinkActionPressed = nil
         reDrawContentViewIfNeededThenUpdate()
     }
 
     /// Card action, transforms the card into a button
     /// - Parameters:
     ///   - handler: handler to trigger on link tap
-    @objc public func setCardAction(handler: ((_ card: AndesCard) -> Void)?) {
+    @objc public func setCardAction(handler: @escaping ((_ card: AndesCard) -> Void)) {
         self.onCardActionPressed = handler
+    }
+
+    /// Remove card action if present
+    @objc public func removeCardAction() {
+        self.onCardActionPressed = nil
     }
 }
 

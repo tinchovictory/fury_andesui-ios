@@ -11,6 +11,9 @@
 		490589A524BE3CA70044FD0B /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490589A324BE3CA70044FD0B /* CardViewController.swift */; };
 		490589A624BE3CA70044FD0B /* CardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 490589A424BE3CA70044FD0B /* CardViewController.xib */; };
 		49BC90AE24C5FAE6007A03D3 /* AndesCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC90AD24C5FAE6007A03D3 /* AndesCardTests.swift */; };
+		49BC925024C8BF72007A03D3 /* CardObjCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BC924E24C8BF72007A03D3 /* CardObjCViewController.m */; };
+		49BC925124C8BF72007A03D3 /* CardObjCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49BC924F24C8BF72007A03D3 /* CardObjCViewController.xib */; };
+		49BC925324C8D72D007A03D3 /* UITestCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC925224C8D72D007A03D3 /* UITestCard.swift */; };
 		57F34E9E2225DE0900454D8B /* AndesUIAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F34E912225DE0900454D8B /* AndesUIAppDelegate.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
@@ -128,6 +131,10 @@
 		490589A424BE3CA70044FD0B /* CardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardViewController.xib; sourceTree = "<group>"; };
 		49891841870D889A9CDC91E2 /* Pods_AndesUI_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AndesUI_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BC90AD24C5FAE6007A03D3 /* AndesCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesCardTests.swift; sourceTree = "<group>"; };
+		49BC924D24C8BF72007A03D3 /* CardObjCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardObjCViewController.h; sourceTree = "<group>"; };
+		49BC924E24C8BF72007A03D3 /* CardObjCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardObjCViewController.m; sourceTree = "<group>"; };
+		49BC924F24C8BF72007A03D3 /* CardObjCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardObjCViewController.xib; sourceTree = "<group>"; };
+		49BC925224C8D72D007A03D3 /* UITestCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestCard.swift; sourceTree = "<group>"; };
 		57ED041E2226FD1200614168 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57F34E912225DE0900454D8B /* AndesUIAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AndesUIAppDelegate.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* AndesUI DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AndesUI DemoApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -298,6 +305,9 @@
 			children = (
 				490589A324BE3CA70044FD0B /* CardViewController.swift */,
 				490589A424BE3CA70044FD0B /* CardViewController.xib */,
+				49BC924D24C8BF72007A03D3 /* CardObjCViewController.h */,
+				49BC924E24C8BF72007A03D3 /* CardObjCViewController.m */,
+				49BC924F24C8BF72007A03D3 /* CardObjCViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -655,6 +665,7 @@
 			children = (
 				9CF562B92458763D008AD504 /* UITestButtons.swift */,
 				9CF562D924589A8B008AD504 /* UITestMessage.swift */,
+				49BC925224C8D72D007A03D3 /* UITestCard.swift */,
 				9CF562C324588C60008AD504 /* SnapshotHelper.swift */,
 				9CF562CD245892F5008AD504 /* Info.plist */,
 				9CF562E12459F9B3008AD504 /* UITextField.swift */,
@@ -841,6 +852,7 @@
 				9C2FFC6B23EDB1A50016292E /* whats_new.html in Resources */,
 				F830F8872494127C0043D5AF /* AndesCheckboxViewController.xib in Resources */,
 				9C9B5A8823ECB08D0007234B /* Localizable.strings in Resources */,
+				49BC925124C8BF72007A03D3 /* CardObjCViewController.xib in Resources */,
 				8617BD202499B6570071319C /* SnackbarViewController.xib in Resources */,
 				F85E052024AF69B20059C6FA /* RadioButtonObjCViewController.xib in Resources */,
 				9CE112FD23D20B0E0017B770 /* MessageObjCViewController.xib in Resources */,
@@ -995,6 +1007,7 @@
 				6D2152EE241BD83C001CEA8D /* TextFieldViewController.swift in Sources */,
 				490589A524BE3CA70044FD0B /* CardViewController.swift in Sources */,
 				490589A124BE3C440044FD0B /* CardRouter.swift in Sources */,
+				49BC925024C8BF72007A03D3 /* CardObjCViewController.m in Sources */,
 				9C9B5A8C23ECEEBE0007234B /* WhatsNewRouter.swift in Sources */,
 				6A22DCC023C918EA00BBFEA0 /* AndesUIViewController.m in Sources */,
 				F830F885249400760043D5AF /* AndesCheckboxViewController.swift in Sources */,
@@ -1034,6 +1047,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CF562D524589338008AD504 /* UITestButtons.swift in Sources */,
+				49BC925324C8D72D007A03D3 /* UITestCard.swift in Sources */,
 				9CF562DA24589A8B008AD504 /* UITestMessage.swift in Sources */,
 				86E0A4C2249415CE003D338C /* UITestTag.swift in Sources */,
 				9CF562E4245A082C008AD504 /* UITestBadge.swift in Sources */,

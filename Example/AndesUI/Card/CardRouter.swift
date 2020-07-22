@@ -18,7 +18,7 @@ class CardAppRouter: NSObject {
 
 extension CardAppRouter: CardRouter {
     func route(from: UIViewController) {
-        view = AndesShowcasePageViewController(controllers: [CardViewController()])
+        view = AndesShowcasePageViewController(controllers: [CardViewController(), CardObjCViewController()])
         view.title = "AndesCard"
         from.navigationController?.pushViewController(view, animated: true)
     }
