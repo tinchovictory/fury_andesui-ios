@@ -14,7 +14,7 @@ import UIKit
 	// MARK: - User properties
 
 	/// Sets the internal card view of the AndesCard
-    @IBInspectable public var cardView: UIView = UIView() { // TODO: @IBInspectable ?
+    public var cardView: UIView = UIView() {
         didSet { self.updateContentView() }
     }
 
