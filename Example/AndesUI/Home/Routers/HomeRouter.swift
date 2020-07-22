@@ -20,6 +20,7 @@ protocol HomeRouter: NSObject {
     func routeTags()
     func routeSnackbar()
     func routeCard()
+    func routeToThumbnail()
 }
 
 class HomeAppRouter: NSObject {
@@ -36,6 +37,7 @@ class HomeAppRouter: NSObject {
     let tagRouter = TagsAppRouter()
     let snackbarRouter = SnackbarAppRouter()
     let cardRouter = CardAppRouter()
+    let thumbnailRouter = ThumbnailAppRouter()
 }
 
 extension HomeAppRouter: HomeRouter {
@@ -88,4 +90,9 @@ extension HomeAppRouter: HomeRouter {
     func routeCard() {
         cardRouter.route(from: view)
     }
+
+    func routeToThumbnail() {
+	thumbnailRouter.route(from: view)
+    }
+
 }
