@@ -13,6 +13,7 @@ class AndesCardWithLinkView: AndesCardAbstractView {
     @IBOutlet weak var linkContainer: UIView!
     @IBOutlet weak var linkLbl: UILabel!
     @IBOutlet weak var iconView: UIImageView!
+    @IBOutlet weak var linkLineDivider: UIView!
 
     @IBOutlet weak var linkContainerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var linkLblLeadingConstraint: NSLayoutConstraint!
@@ -34,6 +35,8 @@ class AndesCardWithLinkView: AndesCardAbstractView {
 
         AndesIconsProvider.loadIcon(name: AndesIcons.chevronRight20, placeItInto: iconView)
         iconView.tintColor = AndesStyleSheetManager.styleSheet.accentColor500
+
+        linkLineDivider.backgroundColor = UIColor.Andes.gray100
     }
 
     // MARK: - Update View

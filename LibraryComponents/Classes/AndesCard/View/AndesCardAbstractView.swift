@@ -17,6 +17,7 @@ class AndesCardAbstractView: UIView, AndesCardView {
     @IBOutlet weak var userViewContainer: UIView!
     @IBOutlet weak var titleContainer: UIView!
     @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var titleLineDivider: UIView!
 
     @IBOutlet weak var topUserViewContainerConstraint: NSLayoutConstraint!
     @IBOutlet weak var leadingUserViewContainerConstraint: NSLayoutConstraint!
@@ -54,7 +55,8 @@ class AndesCardAbstractView: UIView, AndesCardView {
         containerView.clipsToBounds = true
 
         userViewContainer.backgroundColor = .clear
-        titleLbl.setAndesStyle(style: AndesFontStyle(textColor: UIColor.Andes.gray800, font: AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: 16), lineSpacing: 1))
+        titleLbl.setAndesStyle(style: AndesFontStyle(textColor: UIColor.Andes.graySolid800, font: AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: 16), lineSpacing: 1))
+        titleLineDivider.backgroundColor = UIColor.Andes.gray100
 
         updateView()
     }

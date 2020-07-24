@@ -18,6 +18,7 @@
                 <outlet property="titleLbl" destination="OYi-uW-lUF" id="Zvt-ml-ftH"/>
                 <outlet property="titleLblLeadingConstraint" destination="S08-Hl-yNM" id="fCc-Y0-lLm"/>
                 <outlet property="titleLblTrailingConstraint" destination="DqV-pb-tNg" id="dgQ-zR-1sW"/>
+                <outlet property="titleLineDivider" destination="N9E-0j-N2q" id="iQB-aA-BfZ"/>
                 <outlet property="topUserViewContainerConstraint" destination="iUK-jd-kMc" id="JIv-V8-weg"/>
                 <outlet property="trailingUserViewContainerConstraint" destination="1m9-IP-CY5" id="DEP-mq-Ezm"/>
                 <outlet property="userViewContainer" destination="lcn-zn-f6B" id="qRy-gl-EjM"/>

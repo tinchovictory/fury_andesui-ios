@@ -19,11 +19,13 @@
                 <outlet property="linkContainerHeightConstraint" destination="Qqh-72-E08" id="z9W-kf-K8R"/>
                 <outlet property="linkLbl" destination="u6J-mY-2Fb" id="iDI-Ls-BPG"/>
                 <outlet property="linkLblLeadingConstraint" destination="62b-6a-exv" id="Ad5-cA-T6M"/>
+                <outlet property="linkLineDivider" destination="AQJ-r8-0kH" id="ivl-Fq-1Dd"/>
                 <outlet property="titleContainer" destination="Ac2-fe-Y8W" id="7uc-5i-dgP"/>
                 <outlet property="titleContainerHeightConstraint" destination="a4I-c4-IcD" id="ZVM-57-PJS"/>
                 <outlet property="titleLbl" destination="OYi-uW-lUF" id="Zvt-ml-ftH"/>
                 <outlet property="titleLblLeadingConstraint" destination="S08-Hl-yNM" id="fCc-Y0-lLm"/>
                 <outlet property="titleLblTrailingConstraint" destination="DqV-pb-tNg" id="dgQ-zR-1sW"/>
+                <outlet property="titleLineDivider" destination="N9E-0j-N2q" id="I82-Ba-mh8"/>
                 <outlet property="topUserViewContainerConstraint" destination="iUK-jd-kMc" id="JIv-V8-weg"/>
                 <outlet property="trailingUserViewContainerConstraint" destination="1m9-IP-CY5" id="DEP-mq-Ezm"/>
                 <outlet property="userViewContainer" destination="lcn-zn-f6B" id="qRy-gl-EjM"/>

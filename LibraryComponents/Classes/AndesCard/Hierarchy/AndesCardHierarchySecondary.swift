@@ -13,7 +13,7 @@ struct AndesCardHierarchySecondary: AndesCardHierarchyProtocol {
     let borderColor: UIColor?
 
     init() {
-        self.backgroundColor = UIColor.Andes.gray040
+        self.backgroundColor = UIColor.Andes.graySolid040
         self.cardShadow = nil
         self.borderColor = nil
     }
