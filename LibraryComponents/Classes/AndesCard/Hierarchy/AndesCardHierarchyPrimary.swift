@@ -11,10 +11,12 @@ struct AndesCardHierarchyPrimary: AndesCardHierarchyProtocol {
     let backgroundColor: UIColor
     let cardShadow: AndesCardShadowConfig?
     let borderColor: UIColor?
+    let pipeColor: UIColor
 
-    init(style: AndesCardStyleProtocol) {
+    init(style: AndesCardStyleProtocol, type: AndesCardTypeProtocol) {
         backgroundColor = .white
         cardShadow = style.shadow
         borderColor = style.borderColor
+        pipeColor = type.pipeColor
     }
 }

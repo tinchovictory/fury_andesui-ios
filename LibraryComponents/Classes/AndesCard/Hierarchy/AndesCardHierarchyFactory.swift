@@ -8,10 +8,10 @@
 import Foundation
 
 internal class AndesCardHierarchyFactory {
-    static func provide(_ hierarchy: AndesCardHierarchy, forStyle style: AndesCardStyleProtocol) -> AndesCardHierarchyProtocol {
+    static func provide(_ hierarchy: AndesCardHierarchy, forStyle style: AndesCardStyleProtocol, forType type: AndesCardTypeProtocol) -> AndesCardHierarchyProtocol {
         switch hierarchy {
         case .primary:
-            return AndesCardHierarchyPrimary(style: style)
+            return AndesCardHierarchyPrimary(style: style, type: type)
         case .secondary:
             return AndesCardHierarchySecondary()
         case .secondaryDark:

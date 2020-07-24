@@ -38,9 +38,9 @@ class AndesCardTests: QuickSpec {
                 let style = AndesCardStyle.outline
                 let styleInstance = AndesCardStyleOutline()
                 let type = AndesCardType.error
-                let typeColor = AndesCardTypeError().pipeColor
+                let typeInstance = AndesCardTypeError()
                 let hierarchy = AndesCardHierarchy.primary
-                let hierarchyColor = AndesCardHierarchyPrimary(style: styleInstance)
+                let hierarchyColor = AndesCardHierarchyPrimary(style: styleInstance, type: typeInstance)
                 let title: String? = "Title text"
 
                 //When
@@ -55,7 +55,7 @@ class AndesCardTests: QuickSpec {
                 expect((card.contentView as! AndesCardDefaultView).trailingUserViewContainerConstraint.constant).to(equal(paddingConstant))
                 expect((card.contentView as! AndesCardDefaultView).bottomUserViewContainerConstraint.constant).to(equal(paddingConstant))
 
-                expect((card.contentView as! AndesCardDefaultView).leftPipe.backgroundColor).to(equal(typeColor))
+                expect((card.contentView as! AndesCardDefaultView).leftPipe.backgroundColor).to(equal(typeInstance.pipeColor))
 
                 expect((card.contentView as! AndesCardDefaultView).containerView.backgroundColor).to(equal(hierarchyColor.backgroundColor))
             }

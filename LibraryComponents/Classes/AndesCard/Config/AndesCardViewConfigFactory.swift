@@ -9,13 +9,13 @@ import Foundation
 
 internal class AndesCardViewConfigFactory {
     static func provideConfig(for card: AndesCard) -> AndesCardViewConfig {
-        let type = AndesCardTypeFactory.provide(card.type)
         let padding = AndesCardPaddingFactory.provide(card.padding)
+        let type = AndesCardTypeFactory.provide(card.type)
         let style = AndesCardStyleFactory.provide(card.style)
-        let hierarchy = AndesCardHierarchyFactory.provide(card.hierarchy, forStyle: style)
+        let hierarchy = AndesCardHierarchyFactory.provide(card.hierarchy, forStyle: style, forType: type)
 
         return AndesCardViewConfig(backgroundColor: hierarchy.backgroundColor,
-                                   pipeColor: type.pipeColor,
+                                   pipeColor: hierarchy.pipeColor,
                                    borderColor: hierarchy.borderColor,
                                    padding: padding.paddingSize,
                                    titlePadding: padding.titlePaddingSize,
