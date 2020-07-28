@@ -9,21 +9,21 @@ import UIKit
 
 @objc public class AndesCard: UIView {
 
-	internal var contentView: AndesCardView!
+    internal var contentView: AndesCardView!
 
-	// MARK: - User properties
+    // MARK: - User properties
 
-	/// Sets the internal card view of the AndesCard
+    /// Sets the internal card view of the AndesCard
     public var cardView: UIView = UIView() {
         didSet { self.updateContentView() }
     }
 
-	/// Sets the title of the AndesCard
+    /// Sets the title of the AndesCard
     @IBInspectable public var title: String? {
         didSet { self.updateContentView() }
     }
 
-	/// Sets the padding of the AndesCard
+    /// Sets the padding of the AndesCard
     @objc public var padding: AndesCardPadding = .none {
         didSet { self.updateContentView() }
     }
@@ -33,12 +33,12 @@ import UIKit
         didSet { self.reDrawContentViewIfNeededThenUpdate() }
     }
 
-	/// Sets the style of the AndesCard
+    /// Sets the style of the AndesCard
     @objc public var style: AndesCardStyle = .elevated {
         didSet { self.updateContentView() }
     }
 
-	/// Sets the type of AndesCard
+    /// Sets the type of AndesCard
     @objc public var type: AndesCardType = .none {
         didSet { self.updateContentView() }
     }
@@ -52,37 +52,37 @@ import UIKit
     // closure triggered when user presses the full card
     private var onCardActionPressed: ((_ card: AndesCard) -> Void)?
 
-	// MARK: - Initialization
-	public required init?(coder: NSCoder) {
-		super.init(coder: coder)
-		setup()
-	}
+    // MARK: - Initialization
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
 
-	public override init(frame: CGRect) {
-		super.init(frame: frame)
-		setup()
-	}
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
 
-	@objc public init(cardView: UIView, title: String? = nil, padding: AndesCardPadding = .none, hierarchy: AndesCardHierarchy = .primary, style: AndesCardStyle = .elevated, type: AndesCardType = .none) {
-		super.init(frame: .zero)
-		self.cardView = cardView
-		self.title = title
-		self.padding = padding
+    @objc public init(cardView: UIView, title: String? = nil, padding: AndesCardPadding = .none, hierarchy: AndesCardHierarchy = .primary, style: AndesCardStyle = .elevated, type: AndesCardType = .none) {
+        super.init(frame: .zero)
+        self.cardView = cardView
+        self.title = title
+        self.padding = padding
         self.hierarchy = hierarchy
-		self.style = style
-		self.type = type
-		setup()
-	}
+        self.style = style
+        self.type = type
+        setup()
+    }
 
-	// MARK: - Content View Setup
+    // MARK: - Content View Setup
 
-	private func setup() {
-		translatesAutoresizingMaskIntoConstraints = false
+    private func setup() {
+        translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = .clear
         drawContentView(with: provideView())
-	}
+    }
 
-	/// Should return a view depending on which card variant is selected
+    /// Should return a view depending on which card variant is selected
     private func provideView() -> AndesCardView {
         let config = AndesCardViewConfigFactory.provideConfig(for: self)
 
@@ -93,7 +93,7 @@ import UIKit
         return AndesCardDefaultView(withConfig: config)
     }
 
-	private func drawContentView(with newView: AndesCardView) {
+    private func drawContentView(with newView: AndesCardView) {
         self.contentView = newView
         contentView.delegate = self
         addSubview(contentView)
@@ -112,7 +112,7 @@ import UIKit
         updateContentView()
     }
 
-	private func updateContentView() {
+    private func updateContentView() {
         let config = AndesCardViewConfigFactory.provideConfig(for: self)
         contentView.update(withConfig: config)
     }
@@ -163,7 +163,7 @@ extension AndesCard: AndesCardViewDelegate {
 // MARK: - IB Interface
 public extension AndesCard {
 
-	@available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'padding' instead.")
+    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'padding' instead.")
     @IBInspectable var ibPadding: String {
         set(val) {
             self.padding = AndesCardPadding.checkValidEnum(property: "IB padding", key: val)
@@ -173,7 +173,7 @@ public extension AndesCard {
         }
     }
 
-	@available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'style' instead.")
+    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'style' instead.")
     @IBInspectable var ibStyle: String {
         set(val) {
             self.style = AndesCardStyle.checkValidEnum(property: "IB style", key: val)
@@ -183,7 +183,7 @@ public extension AndesCard {
         }
     }
 
-	@available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'type' instead.")
+    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'type' instead.")
     @IBInspectable var ibType: String {
         set(val) {
             self.type = AndesCardType.checkValidEnum(property: "IB type", key: val)
@@ -193,7 +193,7 @@ public extension AndesCard {
         }
     }
 
-	@available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'hierarchy' instead.")
+    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'hierarchy' instead.")
     @IBInspectable var ibHierarchy: String {
         set(val) {
             self.hierarchy = AndesCardHierarchy.checkValidEnum(property: "IB hierarchy", key: val)

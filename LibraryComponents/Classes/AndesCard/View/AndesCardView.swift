@@ -8,10 +8,10 @@
 import Foundation
 
 /**
-Internal protocol specifying the behaviour required by views to be a valid AndesCard representation
-*/
+ Internal protocol specifying the behaviour required by views to be a valid AndesCard representation
+ */
 
 internal protocol AndesCardView: UIView {
-	var delegate: AndesCardViewDelegate? { get set }
+    var delegate: AndesCardViewDelegate? { get set }
     func update(withConfig config: AndesCardViewConfig)
 }

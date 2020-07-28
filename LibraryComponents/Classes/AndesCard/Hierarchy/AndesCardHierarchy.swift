@@ -13,11 +13,11 @@ import Foundation
     case secondary
     case secondaryDark
 
-	public static func keyFor(_ value: AndesCardHierarchy) -> String {
-		switch value {
-		case .primary: return "PRIMARY"
-		case .secondary: return "SECONDARY"
-		case .secondaryDark: return "SECONDARY_DARK"
-		}
-	}
+    public static func keyFor(_ value: AndesCardHierarchy) -> String {
+        switch value {
+        case .primary: return "PRIMARY"
+        case .secondary: return "SECONDARY"
+        case .secondaryDark: return "SECONDARY_DARK"
+        }
+    }
 }
