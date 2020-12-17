@@ -1,4 +1,7 @@
 # Unpublished
+# Some random change
+- Super cool change
+
 ### 🚀 Features
 - AndesProgressIndicatorIndeterminate: support new size in AndesProgressIndicator | Authors: [@javff](https://github.com/javff)
 - AndesDropdown  component  | Authors: [@joalonsopint](https://github.com/joalonsopint)
